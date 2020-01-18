@@ -9,6 +9,8 @@ import math
 from recursioncounter import RecursionCounter
 
 
+
+
 def linear_search(lyst, target):
     """Function to run a linear search through a lyst, to find a target"""
     if not all(isinstance(x, int) for x in lyst):
@@ -38,14 +40,17 @@ def recursive_binary_search_helper(lyst, target, low_index=0, high_index=None):
     midpoint = (low_index + high_index) // 2
     if low_index > high_index:
         return False
-    elif lyst[low_index] == target:
-        return True
-    elif lyst[high_index] == target:
-        return True
-    elif lyst[midpoint] == target:
-        return True
     elif midpoint + 1 == high_index:
         return False
+    elif midpoint - 1 == low_index:
+        if lyst[low_index] == target:
+            return True
+        elif lyst[high_index] == target:
+            return True
+        else:
+            return False
+    elif lyst[midpoint] == target:
+        return True
     elif lyst[midpoint] < target:
         return recursive_binary_search_helper(lyst, target, midpoint - 1, high_index)
     elif lyst[midpoint] > target:
@@ -72,6 +77,8 @@ def jump_search(lyst, target, start=0):
             else:
                 return False
         start += step
+    if target == lyst[-1]:
+        return True
     return False
 
 
@@ -155,7 +162,6 @@ def main():
     jum = jump_search(lyst, -1)
     stop_3 = time.perf_counter()
     print(pnt_format((stop_3 - start_3), "jump", jum))
-
 
 if __name__ == "__main__":
     main()

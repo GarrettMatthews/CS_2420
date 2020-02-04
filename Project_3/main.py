@@ -21,36 +21,15 @@ def main():
             course_lyst.append(course)
 
     # Creating a linked list for course objects
-    #head = None
-    #for i in course_lyst:
-        #head = CourseList(i, head)
-
-    #print(head.find(1031))
-    #print(head.remove(1030))
-    #print(head.size())
-    #print(head.find(1400))
-
-    #while head is not None:
-        #print(head.data)
-        #head = head.next
-
-    empty = CourseList()
-    print(empty)
-
-
-    """
-    lyst = CourseList(None, None)
+    head = None
     for i in course_lyst:
-        lyst.insert(i)
-    print(lyst)
-    lyst.remove(1030)
-    print(lyst)
-    course = Course(1111, "Help Desk", 2.0, 4.0)
-    lyst.insert(course)
-    print(lyst)
-    print(lyst.size())
-    print(lyst.is_sorted())
-    """
+        head = CourseList(i, head)
+
+
+
+
+
+
 
 
 if __name__ == "__main__":
